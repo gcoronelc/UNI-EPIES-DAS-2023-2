@@ -58,6 +58,18 @@ join rh..departamento d on e.iddepartamento = d.iddepartamento
 group by d.iddepartamento, d.nombre;
 go
 
+-- ¿Departamentos que su sueldo promedio es menor que 7,000.00?
+-- HAVING: Filtro de grupo y se aplica despues de GROUP BY
+
+select 
+	d.iddepartamento, d.nombre departamento,
+	avg(sueldo) sueldo_promedio
+from rh..empleado e 
+join rh..departamento d on e.iddepartamento = d.iddepartamento
+group by d.iddepartamento, d.nombre
+having avg(sueldo) < 7000.0;
+go
+
 
 
 
