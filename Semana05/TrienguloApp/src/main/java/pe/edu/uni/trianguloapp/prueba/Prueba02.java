@@ -1,6 +1,6 @@
-package pe.edu.uni.trienguloapp.prueba;
+package pe.edu.uni.trianguloapp.prueba;
 
-import pe.edu.uni.trienguloapp.service.TrianguloService;
+import pe.edu.uni.trianguloapp.service.TrianguloService;
 
 public class Prueba02 {
     
@@ -12,8 +12,12 @@ public class Prueba02 {
         // Proceso
         TrianguloService service = new TrianguloService();
         boolean rpta = service.esValido(a, b, c);
+		  int perimetro = service.perimetro(a, b, c);
+		  double area = service.area(a, b, c);
         // Reporte
         System.out.println("Es valido? " + rpta);
+		  System.out.println("Perimetro: " + perimetro);
+		  System.out.println("Area: " + area);
     }
     
 }
