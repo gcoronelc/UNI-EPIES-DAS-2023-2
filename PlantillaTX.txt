@@ -1,0 +1,33 @@
+        Connection cn = null;
+        PreparedStatement pstm;
+        ResultSet rs;
+        String sql;
+        Integer IdMat = 0;
+        try {
+            // Inicio
+            cn = AccesoDB.getConnection();
+            cn.setAutoCommit(false);
+            
+            
+            
+            // Fin 
+            cn.commit();
+            dto.setIdMatricula(IdMat);
+        } catch (SQLException e) {
+            try {
+                cn.rollback();
+            } catch (Exception e1) {
+            }
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            try {
+                cn.rollback();
+            } catch (Exception e1) {
+            }
+            throw new RuntimeException("Un error en el proceso.");
+        } finally{
+            try {
+                cn.close();
+            } catch (Exception e) {
+            }
+        }
