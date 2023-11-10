@@ -8,13 +8,14 @@ import pe.edu.uni.sistacademico.db.AccesoDB;
 import pe.edu.uni.sistacademico.dto.MatriculaDto;
 
 public class AcademicosService {
-    
+        
     public MatriculaDto matricular(MatriculaDto dto){
         Connection cn = null;
         PreparedStatement pstm;
         ResultSet rs;
         String sql;
         Integer IdMat = 0;
+        
         try {
             // Inicio
             cn = AccesoDB.getConnection();

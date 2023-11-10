@@ -1,5 +1,6 @@
 package pe.edu.uni.sistacademico.view;
 
+import javax.swing.JInternalFrame;
 import pe.edu.uni.sistacademico.dto.AlumnoDto;
 import pe.edu.uni.ventapasajes.util.Session;
 
@@ -44,6 +45,9 @@ public class MainView extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        menuProcesos = new javax.swing.JMenu();
+        menuProcesosMatricula = new javax.swing.JMenuItem();
+        menuProcesosPago = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +112,26 @@ public class MainView extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        menuProcesos.setText("Procesos");
+
+        menuProcesosMatricula.setText("Matricula");
+        menuProcesosMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProcesosMatriculaActionPerformed(evt);
+            }
+        });
+        menuProcesos.add(menuProcesosMatricula);
+
+        menuProcesosPago.setText("Pago");
+        menuProcesosPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProcesosPagoActionPerformed(evt);
+            }
+        });
+        menuProcesos.add(menuProcesosPago);
+
+        menuBar.add(menuProcesos);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,6 +151,18 @@ public class MainView extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void menuProcesosMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProcesosMatriculaActionPerformed
+        JInternalFrame view = new MatriculaView();
+        desktopPane.add(view);
+        view.setVisible(true);
+    }//GEN-LAST:event_menuProcesosMatriculaActionPerformed
+
+    private void menuProcesosPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProcesosPagoActionPerformed
+        JInternalFrame view = new PagoView();
+        desktopPane.add(view);
+        view.setVisible(true);
+    }//GEN-LAST:event_menuProcesosPagoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +211,9 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuProcesos;
+    private javax.swing.JMenuItem menuProcesosMatricula;
+    private javax.swing.JMenuItem menuProcesosPago;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
