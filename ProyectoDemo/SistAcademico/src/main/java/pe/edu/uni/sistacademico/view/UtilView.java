@@ -11,6 +11,7 @@ public class UtilView {
         for(ComboDto dto: lista){
             combo.addItem(dto);
         }
+		  combo.setSelectedIndex(-1);
     }
     
 }

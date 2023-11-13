@@ -15,4 +15,8 @@ public class ComboController {
     public List<ComboDto> getCursos(String ciclo, Integer idAlumno){
         return comboService.getCursos(ciclo, idAlumno);
     }
+	 
+	 public List<ComboDto> getHorario(String ciclo, Integer IdCurso) {
+		 return comboService.getHorario(ciclo, IdCurso);
+	 }
 }
