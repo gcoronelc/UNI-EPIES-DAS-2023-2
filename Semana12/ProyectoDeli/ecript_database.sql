@@ -1,0 +1,85 @@
+
+CREATE TABLE CLIENTES
+( 
+	ID_CLIENTE           int IDENTITY ( 1,1 ) ,
+	DNI                  varchar(20)  NOT NULL ,
+	NOMBRE               varchar(50)  NOT NULL ,
+	APELLIDOP            varchar(50)  NOT NULL ,
+	APELLIDOM            varchar(50)  NOT NULL ,
+	CELULAR              varchar(20)  NOT NULL ,
+	CORREO               varchar(50)  NOT NULL ,
+	CLAVE                varchar(50)  NOT NULL ,
+	CONSTRAINT XPKCLIENTES PRIMARY KEY (ID_CLIENTE ASC)
+)
+go
+
+
+
+CREATE TABLE USUARIOS
+( 
+	ID_EMPLEADO          int IDENTITY ( 1,1 ) ,
+	CODIGO               varchar(10)  NOT NULL ,
+	NOMBRE               varchar(50)  NOT NULL ,
+	APELLIDO             varchar(50)  NOT NULL ,
+	CARGO                varchar(50)  NULL ,
+	CLAVE                varchar(50)  NOT NULL ,
+	CONSTRAINT XPKUSUARIOS PRIMARY KEY (ID_EMPLEADO ASC)
+)
+go
+
+
+
+CREATE TABLE ENVIOS
+( 
+	ID_ENVIO             int IDENTITY ( 1,1 ) ,
+	ID_CLIENTE           int  NOT NULL ,
+	ID_EMPLEADO          int  NOT NULL ,
+	FECHA                datetime  NOT NULL ,
+	TOTAL                numeric(8,2)  NOT NULL ,
+	ESTADO               varchar(50)  NOT NULL ,
+	CONSTRAINT XPKENVIOS PRIMARY KEY (ID_ENVIO ASC),
+	CONSTRAINT FK_ENVIOS_CLIENTES FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTES(ID_CLIENTE)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+CONSTRAINT FK_ENVIOS_USUARIOS FOREIGN KEY (ID_EMPLEADO) REFERENCES USUARIOS(ID_EMPLEADO)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+)
+go
+
+
+
+CREATE TABLE ENVIOS_RECEPTOR
+( 
+	ID_RECEPTORES        int IDENTITY ( 1,1 ) ,
+	ID_ENVIO             int  NOT NULL ,
+	NOMBRE               varchar(50)  NOT NULL ,
+	APELLIDOP            varchar(50)  NOT NULL ,
+	APELLIDOM            varchar(50)  NOT NULL ,
+	DNI                  varchar(20)  NOT NULL ,
+	CELULAR              varchar(20)  NOT NULL ,
+	CONSTRAINT XPKENVIOS_RECEPTOR PRIMARY KEY (ID_RECEPTORES ASC),
+	CONSTRAINT FK_ENVIOS_RECEPTOR_ENVIOS FOREIGN KEY (ID_ENVIO) REFERENCES ENVIOS(ID_ENVIO)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+)
+go
+
+
+
+CREATE TABLE ENVIOS_DETALLE
+( 
+	ID_ENVIO_DETALLES    int IDENTITY ( 1,1 ) ,
+	ID_ENVIO             int  NOT NULL ,
+	LARGO                numeric(8,2)  NOT NULL ,
+	ANCHO                numeric(8,2)  NOT NULL ,
+	ALTO                 numeric(8,2)  NOT NULL ,
+	PESO                 numeric(8,2)  NOT NULL ,
+	CONSTRAINT XPKENVIOS_DETALLE PRIMARY KEY (ID_ENVIO_DETALLES ASC),
+	CONSTRAINT FK_ENVIOS_DETALLE_ENVIOS FOREIGN KEY (ID_ENVIO) REFERENCES ENVIOS(ID_ENVIO)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+)
+go
+
+
