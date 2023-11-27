@@ -5,12 +5,14 @@ D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectod
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\controller\RegistroController.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\view\RegistroView.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\dto\RespuestaDto.java
+D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\view\MainView.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\dto\ClienteDto.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\dto\UsuarioDto.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\view\ServicioView.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\controller\EnvioController.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\service\SeguridadService.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\view\Session.java
+D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\view\RegistroEnvioView.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\service\EnviosService.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\view\LoginView.java
 D:\UNI-EPIES\2023-2\ProyectoDeli\ProyectoDeli\src\main\java\pe\edu\uni\proyectodeli\controller\SeguridadController.java

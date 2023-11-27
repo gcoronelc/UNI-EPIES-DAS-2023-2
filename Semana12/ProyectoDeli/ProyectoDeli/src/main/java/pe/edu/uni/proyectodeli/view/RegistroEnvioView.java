@@ -7,24 +7,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import pe.edu.uni.proyectodeli.controller.EnvioController;
 
-/**
- *
- * @author Eric Gustavo Coronel Castillo
- * @blog www.desarrollasoftware.com
- * @email gcoronelc@gmail.com
- * @youtube www.youtube.com/DesarrollaSoftware
- * @facebook www.facebook.com/groups/desarrollasoftware/
- * @cursos gcoronelc.github.io
- */
+import pe.edu.uni.proyectodeli.dto.ClienteDto;
+
 public class RegistroEnvioView extends javax.swing.JDialog {
 
-	List<JLabel> listaLabels = new ArrayList<>();
-	List<JTextField> listaTextFields = new ArrayList<>();
-	List<JComboBox> listaCombo = new ArrayList<>();
+	private List<JLabel> listaLabels = new ArrayList<>();
+	private List<JTextField> listaTextFields = new ArrayList<>();
+	private List<JComboBox> listaCombo = new ArrayList<>();
+	private ClienteDto clienteDto;
 
-	/**
-	 * Creates new form RegistroEnvioView
-	 */
 	public RegistroEnvioView(java.awt.Frame parent, boolean modal) {
 		super(parent, modal);
 		initComponents();
@@ -56,8 +47,8 @@ public class RegistroEnvioView extends javax.swing.JDialog {
       txtReceptorDNI = new javax.swing.JTextField();
       jLabel21 = new javax.swing.JLabel();
       txtReceptorCelular = new javax.swing.JTextField();
-      jButton1 = new javax.swing.JButton();
-      jButton2 = new javax.swing.JButton();
+      btnConfirmar = new javax.swing.JButton();
+      btnCancelar = new javax.swing.JButton();
       jLabel2 = new javax.swing.JLabel();
       jLabel25 = new javax.swing.JLabel();
       jLabel7 = new javax.swing.JLabel();
@@ -94,19 +85,19 @@ public class RegistroEnvioView extends javax.swing.JDialog {
 
       txtReceptorCelular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-      jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-      jButton1.setText("Confirmar");
-      jButton1.addActionListener(new java.awt.event.ActionListener() {
+      btnConfirmar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+      btnConfirmar.setText("Confirmar");
+      btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton1ActionPerformed(evt);
+            btnConfirmarActionPerformed(evt);
          }
       });
 
-      jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-      jButton2.setText("Cancelar");
-      jButton2.addActionListener(new java.awt.event.ActionListener() {
+      btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+      btnCancelar.setText("Cancelar");
+      btnCancelar.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton2ActionPerformed(evt);
+            btnCancelarActionPerformed(evt);
          }
       });
 
@@ -131,11 +122,6 @@ public class RegistroEnvioView extends javax.swing.JDialog {
             txtEmisorDNIFocusLost(evt);
          }
       });
-      txtEmisorDNI.addActionListener(new java.awt.event.ActionListener() {
-         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            txtEmisorDNIActionPerformed(evt);
-         }
-      });
 
       jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
       jLabel14.setText("Alto");
@@ -147,6 +133,7 @@ public class RegistroEnvioView extends javax.swing.JDialog {
       jLabel15.setText("Ancho");
 
       txtEmisorNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+      txtEmisorNombre.setEnabled(false);
 
       jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
       jLabel16.setText("Peso Kg");
@@ -223,9 +210,9 @@ public class RegistroEnvioView extends javax.swing.JDialog {
                               .addComponent(txtAlto, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(364, 364, 364))
                      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(242, 242, 242))))
                .addComponent(jLabel25)
                .addGroup(layout.createSequentialGroup()
@@ -302,16 +289,16 @@ public class RegistroEnvioView extends javax.swing.JDialog {
                      .addComponent(txtReceptorCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(35, 35, 35))
       );
 
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
-   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		Integer dni = Integer.valueOf(txtEmisorDNI.getText());
+   private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+		String dni = txtEmisorDNI.getText();
 		Double largo = Double.valueOf(txtLargo.getText());
 		Double alto = Double.valueOf(txtAlto.getText());
 		Double ancho = Double.valueOf(txtAncho.getText());
@@ -328,25 +315,18 @@ public class RegistroEnvioView extends javax.swing.JDialog {
 
 		EnvioController.generarVenta(dni, lista2, lista3);
 
-   }//GEN-LAST:event_jButton1ActionPerformed
+   }//GEN-LAST:event_btnConfirmarActionPerformed
 
-   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+   private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
 		// TODO add your handling code here:
-   }//GEN-LAST:event_jButton2ActionPerformed
+   }//GEN-LAST:event_btnCancelarActionPerformed
 
    private void txtEmisorDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmisorDNIFocusLost
-		String dni = txtEmisorDNI.getText();
-		List<String> datosEmisor = EnvioController.validarCliente(dni);
-		if (!datosEmisor.isEmpty()) {
-			txtEmisorNombre.setText(datosEmisor.get(0));
-			txtEmisorDNI.setText(datosEmisor.get(1));
+		txtEmisorNombre.setText("No existe DNI");
+		if (existeCliente()) {
+			txtEmisorNombre.setText(clienteDto.getNombre() + ", " + clienteDto.getApellidoP());
 		}
-
    }//GEN-LAST:event_txtEmisorDNIFocusLost
-
-   private void txtEmisorDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmisorDNIActionPerformed
-		//TODO llama a controlador ventas
-   }//GEN-LAST:event_txtEmisorDNIActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -391,8 +371,8 @@ public class RegistroEnvioView extends javax.swing.JDialog {
 	}
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JButton jButton1;
-   private javax.swing.JButton jButton2;
+   private javax.swing.JButton btnCancelar;
+   private javax.swing.JButton btnConfirmar;
    private javax.swing.JLabel jLabel10;
    private javax.swing.JLabel jLabel13;
    private javax.swing.JLabel jLabel14;
@@ -420,4 +400,12 @@ public class RegistroEnvioView extends javax.swing.JDialog {
    private javax.swing.JTextField txtReceptorNombre;
    // End of variables declaration//GEN-END:variables
 
+	private boolean existeCliente() {
+		String dni = txtEmisorDNI.getText();
+		clienteDto = EnvioController.validarCliente(dni);
+		if (clienteDto == null) {
+			return false;
+		}
+		return true;
+	}
 }

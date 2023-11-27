@@ -26,12 +26,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="btnNuevoEnvio" min="-2" pref="210" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnNuevoEnvio" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                  <Component id="btnEntregaProducto" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="btnRegistrarEnvio" min="-2" pref="210" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="btnEntregaProducto" min="-2" pref="210" max="-2" attributes="0"/>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnSalir" min="-2" pref="210" max="-2" attributes="0"/>
+                  <Component id="btnRegistrarEnvio" min="-2" pref="210" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,9 +46,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnNuevoEnvio" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                   <Component id="btnRegistrarEnvio" min="-2" pref="95" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnSalir" min="-2" pref="95" max="-2" attributes="0"/>
                   <Component id="btnEntregaProducto" min="-2" pref="95" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,6 +84,17 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;p&gt; Entrega&lt;/p&gt;&#xa;&lt;p&gt;de Producto&lt;/p&gt;&#xa;&lt;/html&gt;"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSalir">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Salir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

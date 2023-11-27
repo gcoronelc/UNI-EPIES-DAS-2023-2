@@ -52,7 +52,7 @@ public class ClientesService {
         obtenerClientes();
     }
 
-    public static void obtenerClientes() {
+    public static ArrayList<ClienteDto> obtenerClientes() {
         ArrayList<ClienteDto> clientes = new ArrayList<>();
         Connection cn = null;
         try {
@@ -84,7 +84,7 @@ public class ClientesService {
             } catch (Exception e) {
             }
         }
-        Session.put("clientes", clientes);
+        return clientes;
     }
 
     public static void updateCliente(String nombre, String apellidoP, String apellidoM, String dni, String correo, String clave) {
@@ -114,15 +114,14 @@ public class ClientesService {
         obtenerClientes();
     }
 
-    public static ClienteDto obtenerCliente(Integer dni){
+    public static ClienteDto obtenerCliente(String dni){
         ClienteDto clienteExistente = null;
         Connection cn = null;
         try {
             cn = AccesoDB.getConnection();
-            String sql = "select * from clientes";
-            sql += " where dni = ?";
+            String sql = "select * from clientes where dni = ?";
             PreparedStatement pstm = cn.prepareStatement(sql);
-            pstm.setString(1, dni.toString());
+            pstm.setString(1, dni);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 clienteExistente = new ClienteDto();
@@ -147,8 +146,6 @@ public class ClientesService {
             }
         }
         return clienteExistente;
-
-
     }
 
 }

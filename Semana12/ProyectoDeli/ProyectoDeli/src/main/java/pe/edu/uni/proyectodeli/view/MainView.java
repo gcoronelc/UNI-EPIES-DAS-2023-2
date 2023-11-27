@@ -30,6 +30,7 @@ public class MainView extends javax.swing.JDialog {
       btnNuevoEnvio = new javax.swing.JButton();
       btnRegistrarEnvio = new javax.swing.JButton();
       btnEntregaProducto = new javax.swing.JButton();
+      btnSalir = new javax.swing.JButton();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
       setTitle("Ventana Principal");
@@ -48,18 +49,28 @@ public class MainView extends javax.swing.JDialog {
       btnEntregaProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
       btnEntregaProducto.setText("<html>\n<p> Entrega</p>\n<p>de Producto</p>\n</html>");
 
+      btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+      btnSalir.setText("Salir");
+      btnSalir.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSalirActionPerformed(evt);
+         }
+      });
+
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
       getContentPane().setLayout(layout);
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(layout.createSequentialGroup()
             .addGap(18, 18, 18)
-            .addComponent(btnNuevoEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(btnNuevoEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnEntregaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(38, 38, 38)
-            .addComponent(btnRegistrarEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(38, 38, 38)
-            .addComponent(btnEntregaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnRegistrarEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(22, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,9 +78,12 @@ public class MainView extends javax.swing.JDialog {
             .addGap(34, 34, 34)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addComponent(btnNuevoEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(btnRegistrarEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnRegistrarEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(36, 36, 36)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                .addComponent(btnEntregaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(44, Short.MAX_VALUE))
+            .addContainerGap(32, Short.MAX_VALUE))
       );
 
       pack();
@@ -79,6 +93,10 @@ public class MainView extends javax.swing.JDialog {
       RegistroEnvioView view = new RegistroEnvioView(null, true);
 		view.setVisible(true);
    }//GEN-LAST:event_btnRegistrarEnvioActionPerformed
+
+   private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +144,7 @@ public class MainView extends javax.swing.JDialog {
    private javax.swing.JButton btnEntregaProducto;
    private javax.swing.JButton btnNuevoEnvio;
    private javax.swing.JButton btnRegistrarEnvio;
+   private javax.swing.JButton btnSalir;
    // End of variables declaration//GEN-END:variables
 
 }

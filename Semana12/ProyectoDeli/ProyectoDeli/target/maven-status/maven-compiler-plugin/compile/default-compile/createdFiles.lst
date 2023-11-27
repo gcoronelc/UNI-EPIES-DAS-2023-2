@@ -12,11 +12,8 @@ pe\edu\uni\proyectodeli\view\MainView.class
 pe\edu\uni\proyectodeli\dto\VentaDto.class
 pe\edu\uni\proyectodeli\controller\SeguridadController.class
 pe\edu\uni\proyectodeli\dto\UsuarioDto.class
-pe\edu\uni\proyectodeli\view\RegistroEnvioView$5.class
-pe\edu\uni\proyectodeli\view\MainView$2$1.class
 pe\edu\uni\proyectodeli\view\Menu$3.class
 pe\edu\uni\proyectodeli\view\RegistroView.class
-pe\edu\uni\proyectodeli\view\RegistroEnvioView$5$1.class
 pe\edu\uni\proyectodeli\view\EnvioView$9.class
 pe\edu\uni\proyectodeli\view\EnvioView$3.class
 pe\edu\uni\proyectodeli\view\RegistroEnvioView$2.class
@@ -34,7 +31,9 @@ pe\edu\uni\proyectodeli\controller\RegistroController.class
 pe\edu\uni\proyectodeli\service\ClientesService.class
 pe\edu\uni\proyectodeli\view\Session.class
 pe\edu\uni\proyectodeli\view\EnvioView$7.class
+pe\edu\uni\proyectodeli\view\MainView$3.class
 pe\edu\uni\proyectodeli\view\EnvioView$5.class
+pe\edu\uni\proyectodeli\view\MainView$3$1.class
 pe\edu\uni\proyectodeli\view\Menu.class
 pe\edu\uni\proyectodeli\view\RegistroEnvioView.class
 pe\edu\uni\proyectodeli\view\ServicioView.class
@@ -44,6 +43,7 @@ pe\edu\uni\proyectodeli\controller\EnvioController.class
 pe\edu\uni\proyectodeli\view\Menu$2.class
 pe\edu\uni\proyectodeli\view\RegistroEnvioView$4.class
 pe\edu\uni\proyectodeli\service\EnviosService.class
+pe\edu\uni\proyectodeli\view\RegistroEnvioView$4$1.class
 pe\edu\uni\proyectodeli\ProyectoDeli.class
 pe\edu\uni\proyectodeli\view\EnvioView$1.class
 pe\edu\uni\proyectodeli\view\RegistroView$1.class

@@ -385,7 +385,7 @@ public class EnvioView extends javax.swing.JFrame {
         List<Double> lista2 = List.of(largo, alto, ancho, peso);
         List<String> lista3 = List.of(rApellidoP, rApellidoM, rNombre, rDNI, rCelular);
 
-        EnvioController.generarVenta( dni, lista2, lista3);
+        //EnvioController.generarVenta( dni, lista2, lista3);
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -396,12 +396,14 @@ public class EnvioView extends javax.swing.JFrame {
 
 
     private void txtEmisorDNIFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmisorDNIFocusLost
-        String dni = txtEmisorDNI.getText();
+        /*
+		 String dni = txtEmisorDNI.getText();
         List<String> datosEmisor = EnvioController.validarCliente(dni);
         if (!datosEmisor.isEmpty()) {
             txtEmisorNombre.setText(datosEmisor.get(0));
             txtEmisorDNI.setText(datosEmisor.get(1));
         }
+		 */
 
 
     }//GEN-LAST:event_txtEmisorDNIFocusLost

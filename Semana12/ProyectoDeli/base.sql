@@ -121,7 +121,7 @@ INSERT INTO USUARIOS(CODIGO, NOMBRE, APELLIDO, CLAVE, CARGO) VALUES('admin', 'ad
 
 --inserta un cliente cualquiera para poder hacer pruebas
 
-INSERT INTO CLIENTES(DNI, NOMBRE, APELLIDOP, APELLIDOM, CELULAR, CORREO, CLAVE) VALUES('12345678', 'cliente', 'clienteP', 'clienteM', '12345678', 'test@mail.pe' , '1234');
+INSERT INTO CLIENTES(DNI, NOMBRE, APELLIDOP, APELLIDOM, CELULAR, CORREO, CLAVE) VALUES('12345678', 'Juan', 'Perez', 'Campos', '12345678', 'jperez@mail.pe' , '1234');
 
 
 select * from CLIENTES
