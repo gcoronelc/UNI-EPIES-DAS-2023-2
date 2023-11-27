@@ -1,0 +1,142 @@
+use master
+go
+
+drop database CuraFacil
+go
+
+create database CuraFacil
+go
+
+use CuraFacil
+go
+
+CREATE TABLE CLIENTE
+( 
+	ID_CLIENTE           INT IDENTITY(1,1)  NOT NULL ,
+	NOMBRE               nvarchar(50)  NOT NULL ,
+	APELLIDO             nvarchar(50)  NULL ,
+	DNI                  nvarchar(20)  NOT NULL ,
+	DIREC                nvarchar(100)  NULL ,
+	TELEFONO             nvarchar(20)  NOT NULL ,
+	CORREO               nvarchar(50)  NULL 
+)
+go
+
+
+
+ALTER TABLE CLIENTE
+	ADD  PRIMARY KEY  CLUSTERED (ID_CLIENTE ASC)
+go
+
+
+
+CREATE TABLE EMPLEADOS
+( 
+	ID_EMPLEADO          INT IDENTITY(1,1)  NOT NULL ,
+	NOMBRE               nvarchar(50)  NOT NULL ,
+	APELLIDO             nvarchar(50)  NULL ,
+	CLAVE                nvarchar(20)  NOT NULL ,
+	CARGO                nvarchar(20)  NULL ,
+	CODIGO               nvarchar(10)  NOT NULL 
+)
+go
+
+
+
+ALTER TABLE EMPLEADOS
+	ADD  PRIMARY KEY  CLUSTERED (ID_EMPLEADO ASC)
+go
+
+
+
+CREATE TABLE PRODUCTOS
+( 
+	CODIGO               nvarchar(20)  NOT NULL ,
+	DESCRIPCION          nvarchar(100)  NOT NULL ,
+	PRECIO_CAJA          numeric(8,2)  NOT NULL ,
+	PRINC_ACTIVO         nvarchar(250)  NULL ,
+	FECHA_VENC           DATETIME  NULL ,
+	STOCK                integer  NULL 
+)
+go
+
+
+
+ALTER TABLE PRODUCTOS
+	ADD  PRIMARY KEY  CLUSTERED (CODIGO ASC)
+go
+
+
+
+CREATE TABLE VENTAS
+( 
+	ID_VENTA             INT IDENTITY(10001,1)  NOT NULL ,
+	ID_EMPLEADO          INT  NOT NULL ,
+	ID_CLIENTE           INT  NOT NULL ,
+	Timestamp            datetime2(0)  NOT NULL ,
+	METODO_PAGO          varchar(20)  NOT NULL ,
+	TOTAL                numeric(8,2)  NOT NULL 
+)
+go
+
+
+
+ALTER TABLE VENTAS
+	ADD  PRIMARY KEY  CLUSTERED (ID_VENTA ASC)
+go
+
+
+
+CREATE TABLE VENTAS_DETALLE
+( 
+	ID_REPORTE           INT IDENTITY(1,1)  NOT NULL ,
+	ID_VENTA             INT  NOT NULL ,
+	CANTIDAD             char(18)  NOT NULL ,
+	TOTAL                numeric(8,2)  NOT NULL ,
+	CODIGO               nvarchar(20)  NOT NULL 
+)
+go
+
+
+
+ALTER TABLE VENTAS_DETALLE
+	ADD  PRIMARY KEY  CLUSTERED (ID_REPORTE ASC)
+go
+
+
+
+
+ALTER TABLE VENTAS
+	ADD  FOREIGN KEY (ID_EMPLEADO) REFERENCES EMPLEADOS(ID_EMPLEADO)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
+ALTER TABLE VENTAS
+	ADD  FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTE(ID_CLIENTE)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
+ALTER TABLE VENTAS_DETALLE
+	ADD  FOREIGN KEY (ID_VENTA) REFERENCES VENTAS(ID_VENTA)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+
+
+ALTER TABLE VENTAS_DETALLE
+	ADD  FOREIGN KEY (CODIGO) REFERENCES PRODUCTOS(CODIGO)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
